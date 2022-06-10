@@ -48,6 +48,7 @@ def scrap_list_product(client):
 
     len(data_new)
     
-    db_new = client["Data_Shopee"]
-    collection_new = db_new["Data_List_Products"]
-    collection_new.insert_many(data_new)
+    if len(data_new) != 0:
+        db_new = client["Data_Shopee"]
+        collection_new = db_new["Data_List_Products"]
+        collection_new.insert_many(data_new)
