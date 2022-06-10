@@ -28,5 +28,5 @@ jobs:
       with:
         script: |
           import Deploy_list_product
-          Deploy_list_product()
+          Deploy_list_product
 
