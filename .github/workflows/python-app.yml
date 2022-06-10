@@ -23,10 +23,7 @@ jobs:
         python -m pip install datetime
         python -m pip install requests
         python -m pip install pandas
-        
-    - uses: jannekem/run-python-script-action@v1
-      with:
-        script: |
-          import Deploy_list_product
-          Deploy_list_product
+    - name: Install dependencies
+      run: |
+        main-scrap
 
