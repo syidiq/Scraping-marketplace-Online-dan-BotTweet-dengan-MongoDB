@@ -29,4 +29,4 @@ jobs:
         python -m pip install pandas
     - name: Run main srap
       run: |
-        main-scrap.py
+        main-scrap
