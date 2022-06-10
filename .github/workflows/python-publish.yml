@@ -27,7 +27,6 @@ jobs:
         python -m pip install datetime
         python -m pip install requests
         python -m pip install pandas
-        python -m pip install re
     - name: Run main srap
       run: |
         main-scrap.py
