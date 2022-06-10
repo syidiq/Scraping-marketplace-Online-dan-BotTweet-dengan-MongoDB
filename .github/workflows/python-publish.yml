@@ -25,6 +25,3 @@ jobs:
       run: |
         python -m pip install "pymongo[srv]"
         pip install dnspython
-    - name: Build package
-      run: python -m build
-
