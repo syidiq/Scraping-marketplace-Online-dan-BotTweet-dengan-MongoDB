@@ -23,7 +23,7 @@ jobs:
         python -m pip install datetime
         python -m pip install requests
         python -m pip install pandas
-    - name: Install dependencies
+    - name: run python
       run: |
-        main-scrap
+        main-scrap.py
 
