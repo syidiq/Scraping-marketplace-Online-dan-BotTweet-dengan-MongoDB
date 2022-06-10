@@ -25,5 +25,4 @@ jobs:
         python -m pip install "pymongo[srv]"
         pip install dnspython
     - name: Run main srap
-      run: |
-        main-scrap.py
+      run: main-scrap.py
