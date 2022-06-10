@@ -23,6 +23,10 @@ jobs:
         python -m pip install datetime
         python -m pip install requests
         python -m pip install pandas
-    - name: Test with pytest
-      run: |
-        main-scrap
+        
+    - uses: jannekem/run-python-script-action@v1
+      with:
+        script: |
+          import Deploy_list_product
+          Deploy_list_product()
+
