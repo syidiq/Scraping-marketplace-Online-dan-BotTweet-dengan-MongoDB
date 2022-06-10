@@ -23,7 +23,6 @@ jobs:
         python -m pip install datetime
         python -m pip install requests
         python -m pip install pandas
-        python -m pip install re
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
