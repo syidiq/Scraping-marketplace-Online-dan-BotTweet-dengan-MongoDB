@@ -23,5 +23,6 @@ uri = ("mongodb+srv://{}:{}@{}.{}.mongodb.net/?retryWrites=true&w=majority").for
 client = MongoClient(uri)
 
 # Menjalankan Deploy
-Deploy_detail_product.scrap_detail_product(client)
 Deploy_list_product.scrap_list_product(client)
+Deploy_detail_product.scrap_detail_product(client)
+
