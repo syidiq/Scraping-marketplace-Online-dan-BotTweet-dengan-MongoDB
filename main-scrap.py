@@ -1,6 +1,3 @@
-# Install Library
-! python -m pip install "pymongo[srv]"
-! python -m pip install dnspython
 
 # Panggil Library
 import datetime            # Imports datetime library
