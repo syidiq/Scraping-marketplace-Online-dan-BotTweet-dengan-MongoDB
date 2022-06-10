@@ -1,6 +1,6 @@
 
 # Panggil Library
-import datetime            # Imports datetime library
+import datetime          
 from datetime import date
 import pymongo
 from pymongo import MongoClient
