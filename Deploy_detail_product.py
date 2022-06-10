@@ -1,3 +1,12 @@
+import datetime            # Imports datetime library
+from datetime import date
+import pymongo
+from pymongo import MongoClient
+import requests
+import json
+import pandas as pd
+import re
+
 
 def scrap_detail_product(client):
     # Masuk Ke database dan collection
