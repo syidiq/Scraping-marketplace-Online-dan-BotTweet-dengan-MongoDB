@@ -57,6 +57,7 @@ def scrap_detail_product(client):
         y[0]['date_transaction'] = datetrac
         y[0]['url_img'] = url_img
         y[0]['url_prod'] = url_prod
+        y[0]['harga'] = y[0]['price']/100000
         data_detail.extend(y)
 
     len(data_detail)
