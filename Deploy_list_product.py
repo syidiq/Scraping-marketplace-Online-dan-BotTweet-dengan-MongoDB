@@ -7,6 +7,7 @@ import requests
 import json
 import pandas as pd
 import re
+import os
 
 def scrap_list_product(client):
     
