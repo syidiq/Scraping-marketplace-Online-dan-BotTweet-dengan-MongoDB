@@ -8,8 +8,10 @@
 
 name: R-app
 
-on: [push]
-
+on: 
+#  [push]
+  schedule:
+  - cron: "30 5 * * *"
 jobs:
   build:
     runs-on: macos-latest
