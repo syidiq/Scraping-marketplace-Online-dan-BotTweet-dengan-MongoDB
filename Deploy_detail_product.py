@@ -95,4 +95,4 @@ def scrap_detail_product(client):
 
     db_on = client.get_database('Data_Shopee')
     collection_new = db_on["Data_Products_Detail"]
-    collection_new.insert_many(data_detail)
+    collection_new.insert_many(data_on_daily)
