@@ -9,7 +9,13 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    
+    env:
+      USERNAME_MONGODB: ${{ secrets.USERNAME_MONGODB }}
+      PASSWORD_MONGODB: ${{ secrets.PASSWORD_MONGODB }}
+      CLUSTER_MONGODB: ${{ secrets.CLUSTER_MONGODB }}
+      CODE_MONGODB: ${{ secrets.CODE_MONGODB }}
+    
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.10
