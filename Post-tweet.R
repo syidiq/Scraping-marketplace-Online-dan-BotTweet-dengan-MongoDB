@@ -120,7 +120,7 @@ hashtag <- c("ManajemenData", "github", "MongoDB", "NoSQL", "bot", "shopee")
 
 # Detai postingan
 status_details <- paste0( "#Bot_Top_Penjualan_Harian_shopee","\n",
-                          "5Category: Perawatan & Kecantikan","\n",
+                          "Category: Perawatan & Kecantikan","\n",
                           data_top1$url_prod[1], "\n",
                           "Penjualan Harian tertinggi ke-1" , "\n",
                           "pada tanggal :" , Sys.Date()-1, "\n",
