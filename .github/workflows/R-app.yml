@@ -28,4 +28,4 @@ jobs:
           install.packages(c("mongolite", "png", "grid", "jpeg", "tidyverse", "lubridate", "ggplot2"))
         shell: Rscript {0}
       - name: Run Post Tweet
-        run: Post-tweet.R
+        run: Rscript Post-tweet.R
