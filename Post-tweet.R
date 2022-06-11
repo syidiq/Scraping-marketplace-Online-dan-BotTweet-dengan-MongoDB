@@ -8,10 +8,10 @@ library(lubridate)
 library(ggplot2)
 
 # Conection Data
-username = Sys.getenv(USERNAME_MONGODB)
-password = Sys.getenv(PASSWORD_MONGODB)
-cluster = Sys.getenv(CLUSTER_MONGODB)
-code = Sys.getenv(CODE_MONGODB)
+username = Sys.getenv("USERNAME_MONGODB")
+password = Sys.getenv("PASSWORD_MONGODB")
+cluster = Sys.getenv("CLUSTER_MONGODB")
+code = Sys.getenv("CODE_MONGODB")
 
 connection_string = sprintf('mongodb+srv://%s:%s@%s.%s.mongodb.net/?retryWrites=true&w=majority', username, password, cluster, code)
 
@@ -90,10 +90,10 @@ ab
 
 library(rtweet)
 
-API_Key <- Sys.getenv(TWITTER_API_KEY)
-API_Key_Secret <- Sys.getenv(TWITTER_API_KEY_SECRET)
-Access_Token <- Sys.getenv(TWITTER_ACCESS_TOKEN)
-Access_Token_Secret <- Sys.getenv(TWITTER_ACCESS_TOKEN_SECRET)
+API_Key <- Sys.getenv("TWITTER_API_KEY")
+API_Key_Secret <- Sys.getenv("TWITTER_API_KEY_SECRET")
+Access_Token <- Sys.getenv("TWITTER_ACCESS_TOKEN")
+Access_Token_Secret <- Sys.getenv("TWITTER_ACCESS_TOKEN_SECRET")
 
 
 
