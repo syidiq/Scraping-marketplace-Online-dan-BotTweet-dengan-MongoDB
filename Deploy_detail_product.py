@@ -65,12 +65,14 @@ def scrap_detail_product(client):
 
 
     # Membuat Daily Item Sold 
-
+    db_on = client.get_database('Data_Shopee')
+    collection_new = db_on["Data_Products_Detail"]
+    
     D_Previous_Date = datetime.datetime.today() - datetime.timedelta(days=2)
     Ddatetrac = D_Previous_Date.strftime("%d/%m/%Y")
     Ddatetrac
 
-    dt_md = list(collection.find({'date_transaction': Ddatetrac},{'itemid','shopid','date_transaction','historical_sold'}))
+    dt_md = list(collection_new.find({'date_transaction': Ddatetrac},{'itemid','shopid','date_transaction','historical_sold'}))
     data_on_daily = []
     if len(dt_md) != 0:
       for i in data_detail:
@@ -92,8 +94,5 @@ def scrap_detail_product(client):
         data_on_daily.extend([i])
     len(data_on_daily)
 
-
-
-    db_on = client.get_database('Data_Shopee')
-    collection_new = db_on["Data_Products_Detail"]
+    
     collection_new.insert_many(data_on_daily)
