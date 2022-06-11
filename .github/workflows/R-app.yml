@@ -25,7 +25,7 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages(c("mongolite", "png", "grid", "jpeg", "tidyverse", "lubridate", "ggplot2"))
+          install.packages(c("mongolite", "png", "grid", "jpeg", "tidyverse", "lubridate", "ggplot2", "rtweet"))
         shell: Rscript {0}
       - name: Run Post Tweet
         run: Rscript Post-tweet.R
