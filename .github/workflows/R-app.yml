@@ -1,0 +1,41 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+#
+# See https://github.com/r-lib/actions/tree/master/examples#readme for
+# additional example workflows available for the R community.
+
+name: R-app
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        r-version: ['4.1.1']
+    
+    env:
+      USERNAME_MONGODB: ${{ secrets.USERNAME_MONGODB }}
+      PASSWORD_MONGODB: ${{ secrets.PASSWORD_MONGODB }}
+      CLUSTER_MONGODB: ${{ secrets.CLUSTER_MONGODB }}
+      CODE_MONGODB: ${{ secrets.CODE_MONGODB }}
+      TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+      TWITTER_API_KEY_SECRET: ${{ secrets.TWITTER_API_KEY_SECRET }}
+      TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+      TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
+        with:
+          r-version: ${{ matrix.r-version }}
+      - name: Install dependencies
+        run: |
+          install.packages(c("mongolite", "png", "grid", "jpeg", "tidyverse", "lubridate", "ggplot2", "rtweet"))
+        shell: Rscript {0}
+      - name: Run Post Tweet
+        run: Rscript Post-tweet.R
