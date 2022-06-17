@@ -37,7 +37,8 @@ data_top3 = Data_detail_Products$find(sort = '{"daily_sold_item" : -1}' ,
                                 "itemid" : true, 
                                 "shopid" : true,
                                 "date_transaction" : true,
-                                "name" : true}',
+                                "name" : true,
+                                "url_img" : true}',
                                       filter)
 dt3 = data.frame(data_top3)
 dt3
@@ -58,7 +59,7 @@ plotTop3 = ggplot(dt3,
             na.rm = TRUE,
             inherit.aes = TRUE)+
   coord_flip()+
-  labs(x="Harga Product (Rp.)", y="Penjualan Harian (/pc)", title="Top 3 Product Penjualan Harian Tertinggi") +
+  labs(x="Harga Product (Rp.)", y="Penjualan Harian (/pc)", title="Ringkasan Top 3 Product Penjualan Harian Tertinggi") +
   theme(plot.title = element_text(color = "limegreen", , size=20, face="bold"))
 
 plotTop3
@@ -71,8 +72,8 @@ filter = sprintf('{"date_transaction" : "%s", "itemid" : %s,"shopid" : %s}', tra
 data_top1 = Data_detail_Products$find(filter)
 data_top1
 
-# Ploting data
-img = data_top1$url_img[1]
+# Ploting data top1
+img = dt3$url_img[1]
 img
 download.file(img,'y.jpg', mode = 'wb')
 
@@ -84,6 +85,36 @@ ab = qplot(1:10, 1:10, geom="blank") +
   labs(x="",y='', title="Top 1 Product Penjualan Harian Tertinggi")+
   theme(plot.title = element_text(color = "limegreen", , size=20, face="bold"))
 ab
+
+
+# Ploting data top2
+img2 = dt3$url_img[2]
+img2
+download.file(img2,'y.jpg', mode = 'wb')
+
+jj2 <- readJPEG("y.jpg",native=TRUE)
+g2 <- rasterGrob(jj2, interpolate=TRUE)
+
+ab2 = qplot(1:10, 1:10, geom="blank") +
+  annotation_custom(g2, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)+
+  labs(x="",y='', title="Top 2 Product Penjualan Harian Tertinggi")+
+  theme(plot.title = element_text(color = "limegreen", , size=20, face="bold"))
+ab2
+
+
+# Ploting data top3
+img3 = dt3$url_img[3]
+img3
+download.file(img3,'y.jpg', mode = 'wb')
+
+jj3 <- readJPEG("y.jpg",native=TRUE)
+g3 <- rasterGrob(jj3, interpolate=TRUE)
+
+ab3 = qplot(1:10, 1:10, geom="blank") +
+  annotation_custom(g3, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf)+
+  labs(x="",y='', title="Top 3 Product Penjualan Harian Tertinggi")+
+  theme(plot.title = element_text(color = "limegreen", , size=20, face="bold"))
+ab3
 
 
 # Conection API Twetter
@@ -111,9 +142,17 @@ setwd(getwd())
 
 # Saving Gambar
 file1 <- tempfile( fileext = ".jpeg")
-file2 <- tempfile( fileext = ".jpeg")
 ggsave(file1, plot = plotTop3, device = "jpeg", dpi = 144, width = 8, height = 8, units = "in" )
+
+file2 <- tempfile( fileext = ".jpeg")
 ggsave(file2, plot = ab, device = "jpeg", dpi = 144, width = 8, height = 8, units = "in" )
+
+file3 <- tempfile( fileext = ".jpeg")
+ggsave(file3, plot = ab2, device = "jpeg", dpi = 144, width = 8, height = 8, units = "in" )
+
+file4 <- tempfile( fileext = ".jpeg")
+ggsave(file4, plot = ab3, device = "jpeg", dpi = 144, width = 8, height = 8, units = "in" )
+
 
 # hastag
 hashtag <- c("ManajemenData", "github", "MongoDB", "NoSQL", "bot", "shopee")
@@ -133,7 +172,7 @@ status_details <- paste0( "#Bot_Top_Penjualan_Harian_shopee","\n",
 )
 
 ## Posting to Twitter
-allmedia = c(file2,file1)
+allmedia = c(file2,file3,file4,file1)
 rtweet::post_tweet(
   status = status_details,
   media = allmedia,
