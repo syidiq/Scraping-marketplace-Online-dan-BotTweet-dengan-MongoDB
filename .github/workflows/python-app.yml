@@ -19,6 +19,7 @@ jobs:
       PASSWORD_MONGODB: ${{ secrets.PASSWORD_MONGODB }}
       CLUSTER_MONGODB: ${{ secrets.CLUSTER_MONGODB }}
       CODE_MONGODB: ${{ secrets.CODE_MONGODB }}
+      COOKIE: ${{ secrets.COOKIE }}
     
     steps:
     - uses: actions/checkout@v3
