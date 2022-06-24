@@ -7,7 +7,7 @@ on:
   [push]
 #  schedule:
 #  - cron: "0 1 * * *"
-#  - cron: "0 5 * * *"  # perubahan sementara
+#  - cron: "0 5 * * *"  #perubahan sementara
 
 jobs:
   build:
