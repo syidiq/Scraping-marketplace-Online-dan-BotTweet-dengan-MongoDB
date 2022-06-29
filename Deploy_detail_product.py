@@ -36,7 +36,7 @@ def scrap_detail_product(client):
           'x-api-source': 'pc',
           'cookie': cookie,
           'referer':'https://shopee.co.id/Perawatan-Kecantikan-cat.11043145?page=0&ratingFilter=4',
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36'}
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'}
 
       #Indikasi Variabel Scrapping
       itemid = data_list_product[x]['item_basic']['itemid']
